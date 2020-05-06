@@ -1,0 +1,4 @@
+https://pandas.pydata.org/pandas-docs/stable/getting_started/comparison/comparison_with_sql.html
+https://en.wikipedia.org/wiki/Linear_regression
+https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html
+https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.plot.html

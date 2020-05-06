@@ -1,0 +1,113 @@
+-- CREATE DATABASE KASHI;
+USE KASHI;
+-- SHOW TABLES;
+
+-- SELECT * FROM tips;
+
+-- SELECT count(*) from tips;
+
+SELECT total_bill, tip, smoker, time
+FROM tips
+LIMIT 5;
+
+
+SELECT *, tip/total_bill as tip_rate
+FROM tips
+LIMIT 5;
+
+SELECT *
+FROM tips
+WHERE time = 'Dinner'
+LIMIT 5;
+
+-- tips of more than 5
+SELECT *
+FROM tips
+WHERE time = 'Dinner' AND tip > 5.00;
+
+-- either tip is greater than 5 or bill greater than 50
+SELECT *
+FROM tips
+WHERE size >= 5 OR total_bill > 50;
+
+SELECT *
+FROM frame
+WHERE col2 IS NULL;
+
+SELECT sex, count(*)
+FROM tips
+GROUP BY sex;
+
+SELECT day, AVG(tip), COUNT(*)
+FROM tips
+GROUP BY day;
+
+SELECT smoker, day, COUNT(*), AVG(tip)
+FROM tips
+GROUP BY smoker, day;
+
+CREATE TABLE df1(
+    k VARCHAR(50),
+    v  VARCHAR(50)
+);
+
+CREATE TABLE df2(
+    k VARCHAR(50),
+    v  VARCHAR(50)
+);
+
+INSERT INTO df1(k,v)
+VALUES('A', rand()),
+('B', rand()),
+('C', rand()),
+('D', rand());
+select * from df1;
+
+INSERT INTO df2(k,v)
+VALUES('B', rand()),
+('D', rand()),
+('D', rand()),
+('E', rand());
+select * from df2;
+
+-- inner join
+SELECT *
+FROM df1
+INNER JOIN df2
+  ON df1.k = df2.k;
+  
+-- Left join
+SELECT *
+FROM df1
+LEFT OUTER JOIN df2
+  ON df1.k = df2.k;
+  
+-- Right join
+SELECT *
+FROM df1
+RIGHT OUTER JOIN df2
+  ON df1.k = df2.k;
+  
+-- Fuck  Full join
+SELECT *
+FROM df1
+FULL OUTER JOIN df2
+  ON df1.k = df2.k;
+
+-- Union 
+SELECT *
+FROM df1
+UNION ALL
+SELECT *
+FROM df2;
+-- SQL’s UNION is similar to UNION ALL, however UNION will remove duplicate rows.
+
+-- Top N
+
+SELECT * FROM tips
+ORDER BY tip DESC
+LIMIT 10 OFFSET 5;
+
+
+
+
